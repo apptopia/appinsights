@@ -1,5 +1,4 @@
-## **AppInsight SDK** 
-
+# **AppInsight SDK** 
 *By Apptopia*
 
 ## **Overview**
@@ -41,7 +40,7 @@ implementation files('libs/appinsights-release.aar')
 
 ```
 
-## **Implementation Guide**
+## **Implementation**
 
 Initialize the SDK at application launch by calling PanelSDK.init() in your application's onCreate() method:
 
@@ -61,19 +60,16 @@ PanelSDK.init(
 
 ### **Best Practices for Initialization**
 
-* ## Initialize Early: Call PanelSDK.init() as early as possible in your application lifecycle, preferably in Application.onCreate()
+* Initialize Early: Call PanelSDK.init() as early as possible in your application lifecycle, preferably in Application.onCreate()
 
-* ## Handle Permissions: Request PACKAGE\_USAGE\_STATS permission before initialization to ensure smooth operation
+* Handle Permissions: Request PACKAGE\_USAGE\_STATS permission before initialization to ensure smooth operation
 
-* ## Verify Installation: Always check the return state using PanelSDK.getState() after initialization
+* Verify Installation: Always check the return state using PanelSDK.getState() after initialization
 
-* ## Device ID Management: Implement a reliable method to generate and persist the deviceId, preferably using GAID (Google Advertising ID)
+* Device ID Management: Implement a reliable method to generate and persist the deviceId, preferably using GAID (Google Advertising ID)
 
-* ## Error Recovery: Implement validation of arguments before calling init  
+* Error Recovery: Implement validation of arguments before calling init  
 
-## 
-
-## 
 
 ## **Configuration**
 
