@@ -1,44 +1,51 @@
-# AppInsight SDK
+## **AppInsight SDK** 
+
 *By Apptopia*
 
-## Overview
+## **Overview**
 
 The Appinsight SDK monitors how users interact with mobile applications by tracking time spent across all installed apps on their device. This data provides valuable insights into user engagement patterns and app usage behavior.
 
-### Core functionality:
-- Collects anonymous usage statistics with privacy protection
-- Performs efficient background data collection every 2 hours
-- Securely stores data locally and transmits when connected
+**Core functionality:**
 
-With the PACKAGE_USAGE_STATS permission, the Appinsight SDK collects and transmits device-level usage statistics. It focuses solely on high-level metrics like time spent, never accessing in-app content or personal data. The SDK employs WorkManager for optimized background collection, ensuring consistent data gathering while conserving system resources. For data integrity and efficiency, the SDK securely stores usage statistics locally and only transmits them to backend servers when a stable internet connection is available.
+* Collects anonymous usage statistics with privacy protection  
+* Performs efficient background data collection every 2 hours  
+* Securely stores data locally and transmits when connected
 
-## System Requirements
+With the PACKAGE\_USAGE\_STATS permission, the Appinsight SDK collects and transmits device-level usage statistics. It focuses solely on high-level metrics like time spent, never accessing in-app content or personal data. The SDK employs WorkManager for optimized background collection, ensuring consistent data gathering while conserving system resources. For data integrity and efficiency, the SDK securely stores usage statistics locally and only transmits them to backend servers when a stable internet connection is available.
 
-- Android 7 or higher (minSdk=24)
-- Required Permissions:
-  - PACKAGE_USAGE_STATS
-  - INTERNET
-  - ACCESS_NETWORK_STATE
+## **System Requirements**
 
-## Installation
+* Android 7 or higher (minSdk=24)  
+* Required Permissions:  
+  * PACKAGE\_USAGE\_STATS  
+  * INTERNET  
+  * ACCESS\_NETWORK\_STATE
 
-Add the following dependencies to your project:
-```gradle
+## **Installation**
+
+**Add the following dependencies to your project:**
+
+```
 implementation 'android.work:work-runtime-ktx:2.7.1'
 implementation 'androidx.core:core-ktx:1.10.1'
+
 ```
 
-Include the SDK:
+**Include the SDK in your project:**
 
-Add the appinsights-release.aar file to your project's app/libs/ directory and include:
-```gradle
+Add the appinsights-release.aar file to your project's app/libs/ directory and include it as a dependency in your Gradle script:
+
+```
 implementation files('libs/appinsights-release.aar')
+
 ```
 
-## Implementation Guide
+## **Implementation Guide**
 
-Initialize the SDK at application launch:
-```kotlin
+Initialize the SDK at application launch by calling PanelSDK.init() in your application's onCreate() method:
+
+```
 import com.appinsights.PanelSDK
 
 PanelSDK.init(
@@ -49,30 +56,54 @@ PanelSDK.init(
     applicationContext,
     debugMode     // Controls log verbosity only
 )
+
 ```
 
-### Best Practices for Initialization
-- Initialize Early: Call PanelSDK.init() in Application.onCreate()
-- Handle Permissions: Request PACKAGE_USAGE_STATS permission before initialization
-- Verify Installation: Check return state using PanelSDK.getState()
-- Device ID Management: Use GAID (Google Advertising ID) when possible
-- Error Recovery: Validate arguments before calling init
+### **Best Practices for Initialization**
 
-## Configuration
-Only debug mode configuration available, controlling log verbosity.
+* ## Initialize Early: Call PanelSDK.init() as early as possible in your application lifecycle, preferably in Application.onCreate()
 
-## SDK Monitoring
-Monitor SDK state using:
-```kotlin
+* ## Handle Permissions: Request PACKAGE\_USAGE\_STATS permission before initialization to ensure smooth operation
+
+* ## Verify Installation: Always check the return state using PanelSDK.getState() after initialization
+
+* ## Device ID Management: Implement a reliable method to generate and persist the deviceId, preferably using GAID (Google Advertising ID)
+
+* ## Error Recovery: Implement validation of arguments before calling init  
+
+## 
+
+## 
+
+## **Configuration**
+
+The SDK offers a single configuration option:
+
+* **Debug Mode:** Controls log verbosity without affecting core functionality
+
+## **Error Handling**
+
+The SDK implements internal error handling to prevent exceptions from propagating to the host application. All errors are handled silently within the SDK.
+
+## **SDK Monitoring & Testing**
+
+Monitor the SDK's state using PanelSDK.getState(), which returns a PanelSDKState object with the following properties:
+
+```
 data class PanelSDKState(
     val initCompleted: Boolean,     // SDK initialization status
     val jobScheduled: Boolean,      // Background job scheduling status
     val permissionAcquired: Boolean // Required permissions status
 )
+
 ```
 
-## Backend API Integration testing <todo>
+For successful operation, all properties should return true.
+
+## **Backend API Integration Testing\<Todo\>**
+
 Monitor device statistics through our REST API:
+
 ```
 #Proposed / Todo 
 GET <https://api.example.com/getStats?partnerId=123&deviceId=543>
@@ -82,15 +113,22 @@ Response:
     "lastDataDelivered": "timestamp",
     "lastHeartbeat": "timestamp"
 }
-
 ```
 
+## **Legal & License Information**
 
-## Legal & License Information
-- Usage License: Proprietary software, requires valid partner credentials
-- Data Collection: Must comply with applicable data protection laws
-- Restrictions: No modification or redistribution without permission
+The Appinsight SDK is licensed under the following terms:
 
-### Privacy Compliance
-- Data Retention: According to standard policies, deletable upon request
-- User Consent: Required before enabling usage statistics collection
+* **Usage License:** The SDK is proprietary software, licensed for use only with valid partner credentials provided by Apptopia.  
+* **Data Collection:** By implementing this SDK, you agree to comply with all applicable data protection and privacy laws in your jurisdiction.  
+* **Restrictions:** Modification, reverse engineering, or redistribution of the SDK is strictly prohibited without explicit written permission.
+
+For detailed license terms or questions about usage rights, please see our “terms of service”
+
+### **Privacy Compliance**
+
+* **Data Retention:** Usage data is retained according to our standard data retention policies and can be deleted upon request.  
+* **User Consent:** Implementers must ensure proper user consent is obtained before enabling usage statistics collection.
+
+For additional information about privacy compliance and data handling, please refer to our privacy policy.
+
