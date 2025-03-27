@@ -20,6 +20,7 @@ With the PACKAGE\_USAGE\_STATS permission, the Appinsight SDK collects and trans
   * PACKAGE\_USAGE\_STATS  
   * INTERNET  
   * ACCESS\_NETWORK\_STATE
+  * RECEIVE\_BOOT\_COMPLETED
 
 ## **Installation**
 
