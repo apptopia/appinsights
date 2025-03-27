@@ -13,6 +13,7 @@ The Appinsight SDK monitors how users interact with mobile applications by track
 With the PACKAGE_USAGE_STATS permission, the Appinsight SDK collects and transmits device-level usage statistics. It focuses solely on high-level metrics like time spent, never accessing in-app content or personal data. The SDK employs WorkManager for optimized background collection, ensuring consistent data gathering while conserving system resources. For data integrity and efficiency, the SDK securely stores usage statistics locally and only transmits them to backend servers when a stable internet connection is available.
 
 ## System Requirements
+
 - Android 7 or higher (minSdk=24)
 - Required Permissions:
   - PACKAGE_USAGE_STATS
@@ -28,6 +29,7 @@ implementation 'androidx.core:core-ktx:1.10.1'
 ```
 
 Include the SDK:
+
 Add the appinsights-release.aar file to your project's app/libs/ directory and include:
 ```gradle
 implementation files('libs/appinsights-release.aar')
@@ -68,6 +70,21 @@ data class PanelSDKState(
     val permissionAcquired: Boolean // Required permissions status
 )
 ```
+
+## Backend API Integration testing <todo>
+Monitor device statistics through our REST API:
+```
+#Proposed / Todo 
+GET <https://api.example.com/getStats?partnerId=123&deviceId=543>
+
+Response:
+{
+    "lastDataDelivered": "timestamp",
+    "lastHeartbeat": "timestamp"
+}
+
+```
+
 
 ## Legal & License Information
 - Usage License: Proprietary software, requires valid partner credentials
