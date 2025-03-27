@@ -1,5 +1,4 @@
 # AppInsight SDK
-
 *By Apptopia*
 
 ## Overview
@@ -10,7 +9,7 @@ The Appinsight SDK monitors how users interact with mobile applications by track
 - Collects anonymous usage statistics with privacy protection
 - Performs efficient background data collection every 2 hours
 - Securely stores data locally and transmits when connected
-- 
+
 With the PACKAGE_USAGE_STATS permission, the Appinsight SDK collects and transmits device-level usage statistics. It focuses solely on high-level metrics like time spent, never accessing in-app content or personal data. The SDK employs WorkManager for optimized background collection, ensuring consistent data gathering while conserving system resources. For data integrity and efficiency, the SDK securely stores usage statistics locally and only transmits them to backend servers when a stable internet connection is available.
 
 ## System Requirements
