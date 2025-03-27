@@ -7,7 +7,7 @@ The Appinsight SDK monitors how users interact with mobile applications by track
 
 **Core functionality:**
 
-* Collects anonymous usage statistics with privacy protection  
+* Collects anonymous usage statistics 
 * Performs efficient background data collection every 2 hours  
 * Securely stores data locally and transmits when connected
 
