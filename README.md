@@ -7,11 +7,11 @@ The Appinsight SDK monitors how users interact with mobile applications by track
 
 **Core functionality:**
 
-* Collects anonymous usage statistics 
+* Collects de-identified usage statistics 
 * Performs efficient background data collection every 2 hours  
 * Securely stores data locally and transmits when connected
 
-With the PACKAGE\_USAGE\_STATS permission, the Appinsight SDK collects and transmits device-level usage statistics. It focuses solely on high-level metrics like time spent, never accessing in-app content or personal data. The SDK employs WorkManager for optimized background collection, ensuring consistent data gathering while conserving system resources. For data integrity and efficiency, the SDK securely stores usage statistics locally and only transmits them to backend servers when a stable internet connection is available.
+With the PACKAGE_USAGE_STATS permission, the Appinsight SDK collects and transmits device-level usage statistics. It focuses solely on high-level metrics like time spent and des not collects in-app content. The SDK is designed to not collect personal information.  The SDK employs WorkManager for optimized background collection, ensuring consistent data gathering while conserving system resources. For data integrity and efficiency, the SDK securely stores usage data locally and only transmits them to backend servers when a stable internet connection is available.
 
 ## **System Requirements**
 
@@ -32,7 +32,6 @@ implementation 'androidx.core:core-ktx:1.10.1'
 
 ```
 
-**Include the SDK in your project:**
 
 Add the appinsights-release.aar file to your project's app/libs/ directory and include it as a dependency in your Gradle script:
 
@@ -112,20 +111,37 @@ Response:
 }
 ```
 
-## **Legal & License Information**
+**Legal & License Information**
 
 The Appinsight SDK is licensed under the following terms:
 
-* **Usage License:** The SDK is proprietary software, licensed for use only with valid partner credentials provided by Apptopia.  
-* **Data Collection:** By implementing this SDK, you agree to comply with all applicable data protection and privacy laws in your jurisdiction.  
-* **Restrictions:** Modification, reverse engineering, or redistribution of the SDK is strictly prohibited without explicit written permission.
+* **Usage License:** Apptopia grants you a license to access and use the SDK subject to the terms of the SDK License Agreement between you and Apptopia. 
 
-For detailed license terms or questions about usage rights, please see our “terms of service”
+* **Data Collection:** By implementing this SDK, you agree to comply with all applicable data protection and privacy laws in the jurisdictions in which you operate.
 
-### **Privacy Compliance**
+* **Restrictions:** You shall not:
 
-* **Data Retention:** Usage data is retained according to our standard data retention policies and can be deleted upon request.  
-* **User Consent:** Implementers must ensure proper user consent is obtained before enabling usage statistics collection.
+  1. Access, use, distribute, or deploy the SDK, or any applications incorporating the SDK, outside the jurisdiction of the United States;
 
-For additional information about privacy compliance and data handling, please refer to our privacy policy.
+  2. Use the SDK to develop software, products or services that: (A) constitute, promote or are used primarily for activities which are illegal, violate the rights of third parties, are fraudulent or misleading, (B) could harm the name or reputation of Apptopia, (C) are directed to individuals under the age of 18; or (D) could harm, modify or misappropriate software or data on an end user’s computer, including but not limited to spyware, or other malicious programs or code, sends unsolicited email (“spam”), multi-level marketing proposals, hate materials, or contains content which is libelous, defamatory, obscene, pornographic, abusive or otherwise offensive; 
+
+  3. Use the SDK in a manner that infringes third party intellectual property rights;
+
+  4. Modify, create derivative works of, reverse engineer, reverse compile, or disassemble the SDK;
+
+  5. Distribute, sell, lease, rent, lend, sublicense, or transfer any part of the SDK to any third party except as expressly provided herein;
+
+  6. Use the SDK to create or facilitate the creation of any product or service that is competitive with the Services or Apptopia;
+
+  7. Combine the SDK with other technology such that you restrict, impede, circumvent, compromise, impact the functionality of or charge for access to the SDK;
+
+  8. Use the SDK to develop software to upload or otherwise transmit any material containing SDK viruses or other computer code, files, or programs designed to interrupt, destroy, or limit the functionality of any software or hardware
+
+For detailed license terms or questions about usage rights, please see our Terms of Service, Data Usage Policy, or the SDK License Agreement between you and Apptopia. 
+
+**Privacy Compliance**
+
+* **Data Retention:** Usage data is retained according to our standard data retention policies and can be deleted upon request.
+
+**User Consent:** Implementers must ensure proper user consent is obtained before enabling usage statistics collection.For additional information about our privacy practices, please refer to our Privacy Policy.
 
