@@ -25,18 +25,37 @@ In your IDE run command:
 ## Init of SDK
 Call `initialize()` on early stage of application lifecycle 
 ```
-// save reference to plugin instance
-final _appinsightsPlugin = Appinsights();
+import 'package:appinsights/appinsights.dart';
 
-// provide required arguments
-void initAppinsights() async {
-    String partnerId = "SecretID";
-    String partnerKey = "SecretKey";
-    await _appinsightsPlugin.initialize(partnerId, partnerKey);
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // required to call before initialize
+
+  final appinsight = Appinsights();
+  String partnerId = "";
+  String partnerKey = "";
+
+  await appinsight.initialize(partnerId, partnerKey);
+  var state = await appinsight.getState();
+  // print(state);
+  runApp(const MyApp());
 }
 ```
-When you obtain unique user identifier please share the value to SDK by calling `setUserId()`
+When you obtain unique user identifier please share the value with SDK by calling `setUserId()`
 ```
 String userId = "Flattearther1@example.com";
 await appinsights.setUserId(userId);
+```
+
+## Platform requirement
+Please update your build.gradle, remove exact `ndkVersion` and update `minSdk` to 24
+```    
+android {
+//    ndkVersion = flutter.ndkVersion 
+... 
+    defaultConfig {
+        ...
+        minSdk = 24
+        
+    }
+}
 ```
