@@ -16,7 +16,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  // save reference to plugin instance
   final _appinsightsPlugin = Appinsights();
+
+  // provide required arguments
+  void initAppinsights() async {
+    String partnerId = "SecretID";
+    String partnerKey = "SecretKey";
+    await _appinsightsPlugin.initialize(partnerId, partnerKey);
+  }
+
 
   @override
   void initState() {
@@ -24,11 +33,7 @@ class _MyAppState extends State<MyApp> {
     initAppinsights();
   }
 
-  void initAppinsights() async {
-    String partnerId = "SecretID";
-    String partnerKey = "SecretKey";
-    await _appinsightsPlugin.initialize(partnerId, partnerKey);
-  }
+
 
 
   @override

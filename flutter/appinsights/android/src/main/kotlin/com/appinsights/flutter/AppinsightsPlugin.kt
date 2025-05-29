@@ -1,4 +1,4 @@
-package com.example.appinsights
+package com.appinsights.flutter
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall

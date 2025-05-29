@@ -1,8 +1,5 @@
 allprojects {
     repositories {
-        maven {
-            url = uri("../../../../local_repo/repo")  // adjust to your actual path
-        }
         google()
         mavenCentral()
     }

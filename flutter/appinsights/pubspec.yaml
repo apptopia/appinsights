@@ -1,6 +1,6 @@
 name: appinsights
-description: "A new Flutter plugin project."
-version: 0.0.1
+description: "A Flutter plugin for Appinsights."
+version: 1.0.0
 homepage:
 
 environment:
@@ -35,7 +35,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.appinsights
+        package: com.appinsights.flutter
         pluginClass: AppinsightsPlugin
 
   # To add assets to your plugin package, add an assets section, like this:

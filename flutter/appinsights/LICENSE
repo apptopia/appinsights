@@ -1,1 +1,32 @@
-TODO: Add your license here.
+Legal & License Information
+
+The Appinsight SDK is licensed under the following terms:
+
+Usage License: Apptopia grants you a license to access and use the SDK subject to the terms of the SDK License Agreement between you and Apptopia.
+
+Data Collection: By implementing this SDK, you agree to comply with all applicable data protection and privacy laws in the jurisdictions in which you operate.
+
+Restrictions: You shall not:
+
+Access, use, distribute, or deploy the SDK, or any applications incorporating the SDK, outside the jurisdiction of the United States;
+
+Use the SDK to develop software, products or services that: (A) constitute, promote or are used primarily for activities which are illegal, violate the rights of third parties, are fraudulent or misleading, (B) could harm the name or reputation of Apptopia, (C) are directed to individuals under the age of 18; or (D) could harm, modify or misappropriate software or data on an end user’s computer, including but not limited to spyware, or other malicious programs or code, sends unsolicited email (“spam”), multi-level marketing proposals, hate materials, or contains content which is libelous, defamatory, obscene, pornographic, abusive or otherwise offensive;
+
+Use the SDK in a manner that infringes third party intellectual property rights;
+
+Modify, create derivative works of, reverse engineer, reverse compile, or disassemble the SDK;
+
+Distribute, sell, lease, rent, lend, sublicense, or transfer any part of the SDK to any third party except as expressly provided herein;
+
+Use the SDK to create or facilitate the creation of any product or service that is competitive with the Services or Apptopia;
+
+Combine the SDK with other technology such that you restrict, impede, circumvent, compromise, impact the functionality of or charge for access to the SDK;
+
+Use the SDK to develop software to upload or otherwise transmit any material containing SDK viruses or other computer code, files, or programs designed to interrupt, destroy, or limit the functionality of any software or hardware
+
+For detailed license terms or questions about usage rights, please see our Terms of Service, Data Usage Policy, or the SDK License Agreement between you and Apptopia.
+
+Privacy Compliance
+
+Data Retention: Usage data is retained according to our standard data retention policies and can be deleted upon request.
+User Consent: Implementers must ensure proper user consent is obtained before enabling usage statistics collection.For additional information about our privacy practices, please refer to our Privacy Policy.

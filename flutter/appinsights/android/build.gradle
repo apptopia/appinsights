@@ -1,5 +1,5 @@
-group = "com.example.appinsights"
-version = "1.0-SNAPSHOT"
+group = "com.appinsights.flutter"
+version = "1.0"
 
 buildscript {
     ext.kotlin_version = "2.1.0"
@@ -14,13 +14,13 @@ buildscript {
     }
 }
 
-allprojects {
+rootProject.allprojects {
     repositories {
-        maven {
-            url = uri("/Users/sage/ongoing/appinsights/flutter/local_repo/repo")  // Adjust relative path
-        }
         google()
         mavenCentral()
+        maven {
+            url = uri("https://repo.apptopia.com/maven")  // Adjust relative path
+        }
     }
 }
 
@@ -28,7 +28,7 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 
 android {
-    namespace = "com.example.appinsights"
+    namespace = "com.appinsights.flutter"
 
     compileSdk = 35
 
@@ -51,9 +51,9 @@ android {
     }
 
     dependencies {
-//        implementation files('libs/appinsights-release.aar')
-//        implementation (name = "appinsights-release", ext = "aar")
-        implementation("com.example:appinsights:1.0.0")
+        implementation("com.appinsights:appinsights:1.0.0") {
+            transitive = true
+        }
         implementation("androidx.core:core-ktx:1.10.1")
         implementation("androidx.work:work-runtime-ktx:2.7.1")
         implementation("com.google.android.gms:play-services-ads-identifier:18.2.0")
