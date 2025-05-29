@@ -6,31 +6,33 @@ A Flutter plugin for Appinsights.
 
 To integrate the Appinsights Flutter SDK into your Flutter project, follow these steps:
 
-Open your project's pubspec.yaml file.
-Add the Appinsights SDK as a dependency under the dependencies section. 
+1. Open your project's `pubspec.yaml` file.
+2. Add the Appinsights SDK as a dependency under the `dependencies` section:
 
-```
+```yaml
 dependencies:
-appinsights:
+  appinsights:
     git:
-        url: https://github.com/apptopia/appinsights
-        path: "flutter/appinsights"
+      url: https://github.com/apptopia/appinsights
+      path: flutter/appinsights
 ```
-Save the pubspec.yaml  
 
-In your IDE run command: 
-    `flutter pub get`
+3. Save the `pubspec.yaml` file.
 
+4. In your IDE, run the command:  
+   `flutter pub get`
 
-## Init of SDK
-Call `initialize()` on early stage of application lifecycle 
-```
+## SDK Initialization
+
+Call `initialize()` early in your application's lifecycle:
+
+```dart
 import 'package:appinsights/appinsights.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // required to call before initialize
+  WidgetsFlutterBinding.ensureInitialized(); // Required to call before initialize
 
-  final appinsight = Appinsights();
+  final appinsights = Appinsights();
   String partnerId = "";
   String partnerKey = "";
 
@@ -40,22 +42,25 @@ void main() async {
   runApp(const MyApp());
 }
 ```
-When you obtain unique user identifier please share the value with SDK by calling `setUserId()`
-```
+
+When you obtain a unique user identifier, please share the value with the SDK by calling `setUserId():`
+
+```Dart
 String userId = "Flattearther1@example.com";
 await appinsights.setUserId(userId);
 ```
 
-## Platform requirement
-Please update your build.gradle, remove exact `ndkVersion` and update `minSdk` to 24
-```    
+## Platform Requirements
+
+Please update your build.gradle file. Remove any explicit ndkVersion and update minSdk to 24:
+
+```Groovy
 android {
-//    ndkVersion = flutter.ndkVersion 
-... 
+// ndkVersion = flutter.ndkVersion
+...
     defaultConfig {
         ...
         minSdk = 24
-        
     }
 }
 ```
