@@ -4,12 +4,10 @@ packages:
   appinsights:
     dependency: "direct main"
     description:
-      path: "flutter/appinsights"
-      ref: HEAD
-      resolved-ref: b8cf915e4fcd193b0afbcd5b96eec36728cbfa12
-      url: "https://github.com/apptopia/appinsights"
-    source: git
-    version: "0.0.1"
+      path: ".."
+      relative: true
+    source: path
+    version: "1.0.0"
   async:
     dependency: transitive
     description:

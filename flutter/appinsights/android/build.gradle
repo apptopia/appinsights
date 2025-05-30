@@ -19,7 +19,7 @@ rootProject.allprojects {
         google()
         mavenCentral()
         maven {
-            url = uri("https://repo.apptopia.com/maven")  // Adjust relative path
+            url = uri("https://repo.apptopia.com/maven")
         }
     }
 }
@@ -30,7 +30,7 @@ apply plugin: "kotlin-android"
 android {
     namespace = "com.appinsights.flutter"
 
-    compileSdk = 35
+    compileSdk = 34
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
