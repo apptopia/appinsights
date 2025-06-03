@@ -24,21 +24,31 @@ With the PACKAGE_USAGE_STATS permission, the Appinsight SDK collects and transmi
 
 ## **Installation**
 
+Add our Maven repo to the list of repositories in the Gradle script:
+
+```Groovy
+repositories {
+   google()
+   mavenCentral()
+   maven {
+         url = uri("https://repo.apptopia.com/maven")
+   }
+}
+```
+
+
 **Add the following dependencies to your project:**
 
 ```
-implementation 'android.work:work-runtime-ktx:2.7.1'
+implementation 'com.appinsights:appinsights:1.0.0' // primary SDK
+ 
+// dependencies
+implementation 'android.work:work-runtime-ktx:2.7.1' 
 implementation 'androidx.core:core-ktx:1.10.1'
-
+implementation 'com.google.android.gms:play-services-ads-identifier:18.2.0'
 ```
 
 
-Add the appinsights-release.aar file to your project's app/libs/ directory and include it as a dependency in your Gradle script:
-
-```
-implementation files('libs/appinsights-release.aar')
-
-```
 
 ## **Implementation**
 
@@ -48,23 +58,24 @@ Initialize the SDK at application launch by calling PanelSDK.init() in your appl
 import com.appinsights.PanelSDK
 
 PanelSDK.init(
+    applicationContext,
     partnerId,    // Provided by our business unit
     partnerKey,   // Provided by our business unit
-    userId,       // Your system's unique user identifier
-    deviceId,     // Your system's unique device identifier (preferably GAID)
-    applicationContext,
-    debugMode     // Controls log verbosity only
 )
 
 ```
+
+### UserId
+Often, the unique user ID isn't available early in the app's lifecycle, so you can share it with the SDK when you're ready. Simply call `PanelSDK.setUserId(id)`
+
 
 ### **Best Practices for Initialization**
 
 * Initialize Early: Call PanelSDK.init() as early as possible in your application lifecycle, preferably in Application.onCreate()
 
-* Handle Permissions: Request PACKAGE\_USAGE\_STATS permission before initialization to ensure smooth operation
+* Handle Permissions: Request `PACKAGE_USAGE_STATS` permission before initialization to ensure smooth operation
 
-* Verify Installation: Always check the return state using PanelSDK.getState() after initialization
+* Verify Installation: Always check the return state using `PanelSDK.getState()` after initialization
 
 * Device ID Management: Implement a reliable method to generate and persist the deviceId, preferably using GAID (Google Advertising ID)
 
