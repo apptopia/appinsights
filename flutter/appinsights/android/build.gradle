@@ -51,9 +51,10 @@ android {
     }
 
     dependencies {
-        implementation("com.appinsights:appinsights:1.0.0") {
+        implementation("com.appinsights:appinsights:1.0.1") { // primary SDK
             transitive = true
         }
+        // Dependencies
         implementation("androidx.core:core-ktx:1.10.1")
         implementation("androidx.work:work-runtime-ktx:2.7.1")
         implementation("com.google.android.gms:play-services-ads-identifier:18.2.0")

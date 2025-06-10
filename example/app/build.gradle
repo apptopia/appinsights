@@ -43,5 +43,5 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
     implementation libs.workmanager
-    implementation(files("../../libs/appinsights/appinsights-release.aar"))
+    implementation libs.appinsights
 }

@@ -24,18 +24,14 @@ class MainActivity : AppCompatActivity() {
     private fun initInsights(context: Context) {
         val partnerId = "PUT_YOUR_PARTNER_ID"
         val partnerKey = "PUT_YOUR_KEY"
-        val deviceId = "unique-1234-1234-123456-1234"
-        val userId = "email@example.com"
 
         PanelSDK.init(
             partnerId = partnerId,
             partnerKey = partnerKey,
-            userId = userId,
-            deviceId = deviceId,
-            context = context,
-            debug = false
+            context = context
         )
 
-        println("PanelSDK state: ${PanelSDK.getState()}")
+        val state = PanelSDK.getState(context.applicationContext)
+        println("PanelSDK state: ${state}")
     }
 }

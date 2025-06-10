@@ -40,7 +40,7 @@ repositories {
 **Add the following dependencies to your project:**
 
 ```
-implementation 'com.appinsights:appinsights:1.0.0' // primary SDK
+implementation 'com.appinsights:appinsights:1.0.1' // primary SDK
  
 // dependencies
 implementation 'android.work:work-runtime-ktx:2.7.1' 
