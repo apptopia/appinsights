@@ -40,7 +40,7 @@ repositories {
 **Add the following dependencies to your project:**
 
 ```
-implementation 'com.appinsights:appinsights:1.0.1' // primary SDK
+implementation 'com.appinsights:appinsights:latest.version' // primary SDK
  
 // dependencies
 implementation 'android.work:work-runtime-ktx:2.7.1' 
@@ -61,6 +61,18 @@ PanelSDK.init(
     applicationContext,
     partnerId,    // Provided by our business unit
     partnerKey,   // Provided by our business unit
+    consent       // User consent for data collection
+)
+
+```
+
+
+If the user changes their consent during app usage, you must notify the SDK. Call this method every time the consent status changes.
+```
+import com.appinsights.PanelSDK
+
+PanelSDK.setConsent(
+    consent:Boolean
 )
 
 ```
@@ -98,9 +110,11 @@ Monitor the SDK's state using PanelSDK.getState(), which returns a PanelSDKState
 
 ```
 data class PanelSDKState(
-    val initCompleted: Boolean,     // SDK initialization status
-    val jobScheduled: Boolean,      // Background job scheduling status
-    val permissionAcquired: Boolean // Required permissions status
+    val initCompleted: Boolean,      // SDK initialization status
+    val jobScheduled: Boolean,       // Background job scheduling status
+    val permissionAcquired: Boolean, // Required permissions status
+    val version: String,             // SDK library version
+    val consent: Boolean             // Current user consent status
 )
 
 ```
