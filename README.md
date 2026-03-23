@@ -77,19 +77,14 @@ PanelSDK.setConsent(
 
 ```
 
-### UserId
-Often, the unique user ID isn't available early in the app's lifecycle, so you can share it with the SDK when you're ready. Simply call `PanelSDK.setUserId(id)`
-
 
 ### **Best Practices for Initialization**
 
 * Initialize Early: Call PanelSDK.init() as early as possible in your application lifecycle, preferably in Application.onCreate()
 
-* Handle Permissions: Request `PACKAGE_USAGE_STATS` permission before initialization to ensure smooth operation
+* Handle Permissions: Implement the `PACKAGE_USAGE_STATS` permission request in accordance with Google platform guidelines. 
 
-* Verify Installation: Always check the return state using `PanelSDK.getState()` after initialization
-
-* Device ID Management: Implement a reliable method to generate and persist the deviceId, preferably using GAID (Google Advertising ID)
+* Verify Installation: Optionally check the return state using `PanelSDK.getState()` after initialization
 
 * Error Recovery: Implement validation of arguments before calling init  
 
@@ -119,22 +114,8 @@ data class PanelSDKState(
 
 ```
 
-For successful operation, all properties should return true.
+For successful operation, all bullean properties should return true.
 
-## **Backend API Integration Testing\<Todo\>**
-
-Monitor device statistics through our REST API:
-
-```
-#Proposed / Todo 
-GET <https://api.example.com/getStats?partnerId=123&deviceId=543>
-
-Response:
-{
-    "lastDataDelivered": "timestamp",
-    "lastHeartbeat": "timestamp"
-}
-```
 
 **Legal & License Information**
 
