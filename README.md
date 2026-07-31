@@ -45,7 +45,6 @@ implementation 'com.appinsights:appinsights:latest.version' // primary SDK
 // dependencies
 implementation 'android.work:work-runtime-ktx:2.7.1' 
 implementation 'androidx.core:core-ktx:1.10.1'
-implementation 'com.google.android.gms:play-services-ads-identifier:18.2.0'
 ```
 
 
